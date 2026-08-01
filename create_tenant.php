@@ -63,16 +63,20 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         VALUES ('$full_name', '$useremail_2', '$phone_number', '$userpassword_2', 'tenant')";
 
 
-        if(mysqli_query($connect, $query)){
+       if(mysqli_query($connect, $query)){
 
-            $_SESSION['useremail_2']=$useremail_2;
-            $_SESSION['full_name']=$full_name;
-            $_SESSION['phone_number']=$phone_number;
+    $_SESSION['user_id'] = mysqli_insert_id($connect);
+    $_SESSION['name'] = $full_name;
+    $_SESSION['role'] = "tenant";
 
-            header("Location:tenant/dashboard.php");
-            exit;
+    $_SESSION['useremail_2'] = $useremail_2;
+    $_SESSION['full_name'] = $full_name;
+    $_SESSION['phone_number'] = $phone_number;
 
-        }else{
+    header("Location:tenant/dashboard.php");
+    exit;
+
+}else{
 
             echo "Database Error: " . mysqli_error($connect);
 
