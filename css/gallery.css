@@ -1,0 +1,184 @@
+body{
+    background-color:#feebf3;}
+
+ .address{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+    align-items: center;
+
+p{
+   
+    color:rgb(93, 91, 88)
+}
+    
+ h2{
+        padding-top:100px;
+    }}
+ .show{
+
+  display: flex;
+  justify-content: center;
+  gap:30px;
+  margin-bottom: 200px;
+    button{
+    
+     border-radius: 10px;
+     border-color: white;
+   background-color: white;
+   width: 250px;
+   height: 50px;
+   box-shadow: 4px 4px 4px;
+    }
+    button:hover{
+        background-color:#e05f97;
+        color:white;
+        font-size: 19px;
+    }
+    
+ } 
+
+ .sec2 .card{
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.sec2 .card:hover{
+    transform:translateY(-8px);
+}
+
+.sec2 .card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+}
+
+.sec2 .card-body{
+    padding:20px;
+}
+
+.sec2 .card-title{
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+.sec2 .card-text{
+    color:rgb(86,81,81);
+    line-height:1.7;
+}
+
+.sec2 h4{
+    color:#e05f97;
+    font-weight:bold;
+}
+.sec2 h2{
+    margin-top: 60px;
+    text-align: center;
+}
+
+
+/* ============== Tablet ============== */
+@media (max-width: 992px){
+
+    .address h2{
+        padding-top: 80px;
+        text-align: center;
+    }
+
+    .address p{
+        text-align: center;
+        padding: 0 15px;
+    }
+
+    .show{
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 80px;
+    }
+
+    .show button{
+        width: 200px;
+        height: 45px;
+    }
+
+    .sec2 .card img{
+        height: 220px;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    .address h2{
+        font-size: 28px;
+        padding-top: 70px;
+    }
+
+    .address p{
+        font-size: 15px;
+    }
+
+    .show{
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 60px;
+    }
+
+    .show button{
+        width: 90%;
+        max-width: 300px;
+        height: 50px;
+    }
+
+    .sec2 h2{
+        font-size: 28px;
+    }
+
+    .sec2 .card{
+        margin-bottom: 20px;
+    }
+
+    .sec2 .card img{
+        height: 200px;
+    }
+
+    .sec2 .card-title{
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 480px){
+
+    .address h2{
+        font-size: 24px;
+    }
+
+    .address p{
+        font-size: 14px;
+    }
+
+    .show button{
+        width: 100%;
+    }
+
+    .sec2 .card img{
+        height: 180px;
+    }
+
+    .sec2 .card-title{
+        font-size: 18px;
+    }
+
+    .sec2 .card-text{
+        font-size: 14px;
+    }
+
+    .sec2 h4{
+        font-size: 18px;
+    }
+
+}

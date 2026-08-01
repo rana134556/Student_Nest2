@@ -1,0 +1,1534 @@
+/* ================================
+   VARIABLES
+================================ */
+
+:root{
+    --primary: #e05f97;
+    --primary-hover:#c97d84;
+    --bg:#fff8f7;
+    --light:#fcebed;
+    --dark:#2b1d22;
+    --gray:#777;
+    --white:#fff;
+    --border:#f4e4e6;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:22px;
+}
+
+/* ================================
+   RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Cairo",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--dark);
+    line-height:1.7;
+}
+
+img{
+    width:100%;
+    display:block;
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:min(90%,1200px);
+    margin:auto;
+}
+
+section{
+    padding:70px 0;
+}
+
+/* ================================
+   TITLES
+================================ */
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:35px;
+    color:var(--primary);
+    margin-bottom:12px;
+}
+
+.section-title p{
+    color:var(--gray);
+}
+
+/* ================================
+   BUTTONS (تم تحديث زر الحجز Book Now ليكون أبيض)
+================================ */
+
+.main-btn,
+.details-btn,
+.second-btn,
+.remove-btn,
+.favorite-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:13px 20px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-weight:700;
+    transition:.35s;
+    text-decoration:none;
+    flex:1;
+    white-space:nowrap;
+}
+
+/* زر الحجز الأساسي (Main Button) أصبح أبيض بإطار بلون الموقع */
+.main-btn{
+    background:#fff;
+    color:var(--primary);
+    border:1px solid var(--primary);
+}
+
+.main-btn:hover{
+    background:var(--primary);
+    color:#fff;
+    transform:translateY(-3px);
+}
+
+.details-btn{
+    background:var(--primary);
+    color:#fff;
+}
+
+.details-btn:hover{
+    background:var(--primary-hover);
+    transform:translateY(-3px);
+}
+
+.second-btn{
+    background:#fff;
+    color:var(--primary);
+    border:1px solid var(--primary);
+}
+
+.second-btn:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.remove-btn{
+    background:#ffe8eb;
+    color:#d9534f;
+}
+
+.remove-btn:hover{
+    background:#ffd8dd;
+}
+
+/* ================================
+   COMMON BOXES
+================================ */
+
+.welcome-box,
+.search-box,
+.profile-card,
+.profile-form,
+.chat-box,
+.chat-sidebar,
+.notification-card,
+.property-card,
+.booking-table{
+    background:#fff;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+}
+.welcome-box{
+    height:120px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* ================================
+   SEARCH
+================================ */
+
+.search-box{
+    padding:30px;
+    margin-bottom:35px;
+}
+
+.search-form{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.search-form input,
+.search-form select{
+    height:52px;
+    padding:0 16px;
+    border:1px solid #ddd;
+    border-radius:15px;
+    outline:none;
+    transition:.3s;
+}
+
+.search-form input:focus,
+.search-form select:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px var(--light);
+}
+
+.search-form button{
+    height:52px;
+    border:none;
+    border-radius:15px;
+    background:var(--primary);
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.search-form button:hover{
+    background:var(--primary-hover);
+}
+
+/* ================================
+   QUICK ACTIONS
+================================ */
+
+.quick-actions{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:22px;
+}
+
+.quick-actions a{
+    background:#fff;
+    border-radius:22px;
+    padding:30px;
+    text-align:center;
+    color:var(--dark);
+    box-shadow:var(--shadow);
+    transition:.35s;
+}
+
+.quick-actions a:hover{
+    transform:translateY(-7px);
+    color:var(--primary);
+}
+
+/* ================================
+   PROPERTY CARDS
+================================ */
+
+.properties-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,360px));
+    justify-content: center;
+    gap:25px;
+}
+
+.property-card{
+    overflow:hidden;
+    transition:.35s;
+}
+
+.property-card:hover{
+    transform:translateY(-8px);
+}
+
+.property-card img{
+    height:230px;
+    object-fit:cover;
+}
+
+.property-content{
+    padding:22px;
+}
+
+.property-content h3{
+    margin-bottom:12px;
+}
+
+.property-content p{
+    color:var(--gray);
+    margin-bottom:10px;
+}
+
+.property-content h4{
+    color:var(--primary);
+    margin:15px 0;
+}
+
+/* ================================
+   FIX FAVORITE BUTTON & BUTTONS
+================================ */
+
+.card-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.card-buttons a,
+.card-buttons button {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: .35s;
+    white-space: nowrap;
+}
+
+/* زر التفاصيل (Details) */
+.card-buttons .details-btn,
+.details-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+}
+
+.card-buttons .details-btn:hover,
+.details-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+}
+
+/* زر المفضلة (Favorite) وباقي الأزرار الثانوية */
+.card-buttons .second-btn,
+.card-buttons .favorite-btn,
+.second-btn,
+.favorite-btn {
+    background: #fff;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.card-buttons .second-btn:hover,
+.card-buttons .favorite-btn:hover,
+.second-btn:hover,
+.favorite-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.card-buttons .second-btn i,
+.card-buttons .favorite-btn i,
+.second-btn i,
+.favorite-btn i {
+    color: var(--primary);
+    transition: .35s;
+}
+
+.card-buttons .second-btn:hover i,
+.card-buttons .favorite-btn:hover i,
+.second-btn:hover i,
+.favorite-btn:hover i {
+    color: #fff;
+}
+
+/* ================================
+   EMPTY
+================================ */
+
+.no-results{
+    background:#fff;
+    padding:60px 30px;
+    text-align:center;
+    border-radius:25px;
+    box-shadow:var(--shadow);
+}
+
+.no-results i{
+    font-size:55px;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+/* ================================
+   PROPERTY DETAILS
+================================ */
+
+.property-details{
+    padding:70px 0;
+}
+
+.property-details .container{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:40px;
+    background:#fff;
+    border-radius:25px;
+    padding:35px;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+/* الصور */
+
+.property-gallery{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.main-image{
+    overflow:hidden;
+    border-radius:22px;
+}
+
+.main-image img{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.main-image img:hover{
+    transform:scale(1.05);
+}
+
+.gallery-images{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.gallery-images img{
+    height:95px;
+    border-radius:15px;
+    cursor:pointer;
+    object-fit:cover;
+    transition:.3s;
+}
+
+.gallery-images img:hover{
+    transform:scale(1.08);
+    opacity:.85;
+}
+
+/* المحتوى */
+
+.property-content h2{
+    font-size:34px;
+    margin-bottom:15px;
+}
+
+.location{
+    color:#777;
+    margin-bottom:18px;
+}
+
+.location i{
+    color:var(--primary);
+    margin-right:6px;
+}
+
+.price{
+    font-size:34px;
+    color:var(--primary);
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+/* معلومات */
+
+.property-info{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.property-info div{
+    background:var(--light);
+    padding:18px;
+    border-radius:18px;
+    font-weight:600;
+}
+
+.property-info i{
+    color:var(--primary);
+    margin-right:8px;
+}
+
+/* الوصف */
+
+.description{
+    margin-top:20px;
+}
+
+.description h3{
+    margin-bottom:10px;
+    color:var(--primary);
+}
+
+.description p{
+    line-height:1.9;
+    color:#555;
+}
+
+/* الخدمات */
+
+.facilities{
+    margin-top:30px;
+}
+
+.facilities h3{
+    margin-bottom:18px;
+    color:var(--primary);
+}
+
+.facilities-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.facilities-list span{
+    background:#fff8fa;
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:12px 15px;
+    font-size:15px;
+}
+
+.facilities-list i{
+    color:#2ecc71;
+    margin-right:8px;
+}
+
+/* المالك */
+
+.owner-card{
+    margin-top:35px;
+    background:#fff8fa;
+    padding:20px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.owner-card img{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.owner-card h4{
+    margin-bottom:5px;
+}
+
+.owner-card small{
+    color:#777;
+}
+
+/* الحجز */
+
+.booking-box{
+    margin-top:35px;
+    background:var(--light);
+    padding:25px;
+    border-radius:20px;
+}
+
+.booking-box h3{
+    margin-bottom:15px;
+    color:var(--primary);
+}
+
+.booking-box textarea{
+    width:100%;
+    height:120px;
+    resize:none;
+    padding:15px;
+    border-radius:15px;
+    border:1px solid #ddd;
+    outline:none;
+    margin-bottom:20px;
+}
+
+.booking-box textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px var(--light);
+}
+
+.booking-box button{
+    width:100%;
+}
+
+/* ================================
+   FAVORITES PAGE
+================================ */
+
+.favorites-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,350px));
+    gap:25px;
+}
+
+.favorite-card{
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.35s;
+    max-width:350px;
+    /* width: 320px !important; */
+}
+
+.favorite-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(212,142,149,.22);
+}
+
+.favorite-card img{
+    width:100%;
+    height:240px;
+    object-fit:contain;
+}
+
+.favorite-content{
+    padding:22px;
+}
+
+.favorite-content h3{
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.favorite-location{
+    color:#777;
+    margin-bottom:10px;
+}
+
+.favorite-location i{
+    color:var(--primary);
+}
+
+.favorite-price{
+    color:var(--primary);
+    font-size:28px;
+    font-weight:700;
+    margin:18px 0;
+}
+
+.favorite-actions{
+    display:flex;
+    gap:12px;
+}
+
+.favorite-actions a,
+.favorite-actions button{
+    flex:1;
+    text-align:center;
+}
+
+/* ================================
+   BOOKINGS
+================================ */
+
+.bookings-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.booking-card{
+    background:#fff;
+    border-radius:22px;
+    padding:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.booking-card:hover{
+    transform:translateY(-6px);
+}
+
+.booking-info h3{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.booking-info p{
+    margin:6px 0;
+    color:#666;
+}
+
+.booking-status{
+    padding:10px 22px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.booking-status.pending{
+    background:#fff4d6;
+    color:#d48806;
+}
+
+.booking-status.approved{
+    background:#dff7e6;
+    color:#1e8e3e;
+}
+
+.booking-status.rejected{
+    background:#ffe4e8;
+    color:#d6336c;
+}
+
+/* ================================
+   NOTIFICATIONS
+================================ */
+
+.notifications-list{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.notification-card{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    background:#fff;
+    padding:22px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.notification-card:hover{
+    transform:translateY(-5px);
+}
+
+.notification-icon{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:var(--light);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:var(--primary);
+    font-size:26px;
+}
+
+.notification-content{
+    flex:1;
+}
+
+.notification-content h4{
+    margin-bottom:6px;
+    color:var(--dark);
+}
+
+.notification-content p{
+    color:#666;
+    margin-bottom:6px;
+}
+
+.notification-content small{
+    color:#999;
+}
+
+.notification-card.unread{
+    border-left:6px solid var(--primary);
+}
+
+/* ================================
+   TENANT NAVBAR
+================================ */
+
+.tenant-navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+.tenant-nav-container{
+    width:min(90%,1200px);
+    margin:auto;
+    height:80px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.tenant-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:30px;
+    font-weight:800;
+    color:var(--dark);
+}
+
+.tenant-logo i{
+    color:var(--primary);
+}
+
+.logo-color{
+    color:var(--primary);
+}
+
+.tenant-links{
+    list-style:none;
+    display:flex;
+    gap:30px;
+    align-items:center;
+}
+
+.tenant-links a{
+    color:var(--dark);
+    font-weight:600;
+    position:relative;
+    transition:.3s;
+}
+
+.tenant-links a i{
+    margin-right:6px;
+    color:var(--primary);
+}
+
+.tenant-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:3px;
+    background:var(--primary);
+    transition:.3s;
+}
+
+.tenant-links a:hover{
+    color:var(--primary);
+}
+
+.tenant-links a:hover::after{
+    width:100%;
+}
+
+/* ================================
+   PROFILE
+================================ */
+
+.profile-card{
+    display:flex;
+    gap:35px;
+    align-items:center;
+    padding:35px;
+}
+
+.profile-image img{
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    object-fit:cover;
+    border:6px solid var(--light);
+}
+
+.profile-info{
+    flex:1;
+}
+
+.profile-info h2{
+    margin-bottom:15px;
+}
+
+.profile-info p{
+    margin:10px 0;
+    color:#555;
+}
+
+.profile-info strong{
+    color:var(--primary);
+}
+
+/* ================================
+   FORM
+================================ */
+
+.profile-form{
+    max-width:700px;
+    margin:auto;
+    padding:35px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:14px;
+    outline:none;
+    transition:.3s;
+}
+
+.form-group textarea{
+    resize:none;
+    min-height:120px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px var(--light);
+}
+
+/* ================================
+   CHAT
+================================ */
+
+.messages-page{
+    padding:70px 0;
+}
+
+.chat-layout{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:25px;
+}
+
+.chat-sidebar{
+    padding:25px;
+}
+
+.chat-sidebar h3{
+    margin-bottom:20px;
+    color:var(--primary);
+}
+
+.conversation{
+    display:block;
+    padding:18px;
+    border-radius:18px;
+    background:var(--bg);
+    margin-bottom:15px;
+    color:var(--dark);
+    transition:.3s;
+}
+
+.conversation:hover{
+    background:var(--light);
+    transform:translateY(-4px);
+}
+
+.chat-box{
+    overflow:hidden;
+}
+
+.chat-header{
+    background:var(--primary);
+    color:#fff;
+    padding:20px;
+}
+
+.chat-body{
+    min-height:450px;
+    padding:25px;
+    background:#fff;
+}
+
+.message{
+    max-width:70%;
+    padding:14px 18px;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+
+.message.tenant{
+    background:var(--light);
+}
+
+.message.owner{
+    margin-left:auto;
+    background:#eee;
+}
+
+.chat-input{
+    padding:20px;
+    background:#fff;
+    border-top:1px solid var(--border);
+}
+
+.chat-input form{
+    display:flex;
+    gap:15px;
+}
+
+.chat-input input{
+    flex:1;
+    height:52px;
+    padding:0 20px;
+    border-radius:30px;
+    border:1px solid #ddd;
+    outline:none;
+}
+
+.chat-input input:focus{
+    border-color:var(--primary);
+}
+
+.chat-input button{
+    padding:0 30px;
+    border:none;
+    border-radius:30px;
+    background:var(--primary);
+    color:#fff;
+    cursor:pointer;
+}
+
+.chat-input button:hover{
+    background:var(--primary-hover);
+}
+
+/* ================================
+   BOOK PROPERTY PAGE
+================================ */
+
+.booking-page{
+    padding:70px 0;
+}
+
+.booking-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:start;
+}
+
+.booking-property{
+    background:#fff;
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.booking-property img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.booking-property h2{
+    margin-bottom:12px;
+}
+
+.booking-property p{
+    color:#777;
+    margin-bottom:15px;
+}
+
+.booking-property h3{
+    color:var(--primary);
+    font-size:30px;
+}
+
+.booking-form{
+    background:#fff;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.booking-form h2{
+    margin-bottom:25px;
+    color:var(--primary);
+}
+
+.booking-form textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:15px;
+    resize:none;
+    outline:none;
+}
+
+.booking-form textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px var(--light);
+}
+
+.booking-form .main-btn{
+    width:100%;
+    margin-top:20px;
+}
+
+/* ================================
+   TOAST MESSAGE
+================================ */
+
+.toast-message{
+    position:fixed;
+    top:25px;
+    right:25px;
+    background:#ffffff;
+    color:#2b1d22;
+    padding:18px 25px;
+    border-left:6px solid #d48e95;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+    z-index:9999;
+    opacity:0;
+    visibility:hidden;
+    transform:translateX(100px);
+    transition:opacity .4s, transform .4s, visibility .4s;
+}
+
+.toast-message.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0);
+}
+
+.toast-message i{
+    font-size:28px;
+    color:#4CAF50;
+}
+
+.toast-message span{
+    font-weight:600;
+    font-size:16px;
+}
+
+/* ================================
+   CATEGORIES SECTION
+================================ */
+
+.categories-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.category-card {
+    background: #fff;
+    padding: 25px 35px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    text-align: center;
+    min-width: 220px;
+    transition: .35s;
+    display: block;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.category-card .category-icon i {
+    font-size: 32px;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.category-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--dark);
+}
+
+.category-card span {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.category-card:hover span {
+    text-decoration: underline;
+}
+
+/* ================================
+   RESPONSIVE QUERIES 
+================================ */
+
+@media(max-width:1200px){
+    .container{
+        width:92%;
+    }
+}
+
+@media(max-width:992px){
+    .property-details .container{
+        grid-template-columns:1fr;
+    }
+    .gallery-images{
+        grid-template-columns:repeat(4,1fr);
+    }
+    .favorites-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .tenant-nav-container{
+        flex-direction:column;
+        height:auto;
+        padding:20px 0;
+        gap:20px;
+    }
+    .tenant-links{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+    .profile-card{
+        flex-direction:column;
+        text-align:center;
+    }
+    .chat-layout{
+        grid-template-columns:1fr;
+    }
+    .booking-layout{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:768px){
+    .main-image img{
+        height:280px;
+    }
+    .gallery-images{
+        grid-template-columns:repeat(2,1fr);
+    }
+    .property-info{
+        grid-template-columns:1fr;
+    }
+    .facilities-list{
+        grid-template-columns:1fr;
+    }
+    .property-content h2{
+        font-size:28px;
+    }
+    .price{
+        font-size:28px;
+    }
+    .owner-card{
+        flex-direction:column;
+        text-align:center;
+    }
+    .favorites-grid{
+        grid-template-columns:1fr;
+    }
+    .booking-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+    .booking-status{
+        align-self:flex-start;
+    }
+    .notification-card{
+        flex-direction:column;
+        text-align:center;
+    }
+    .tenant-links{
+        gap:15px;
+    }
+    .chat-input form{
+        flex-direction:column;
+    }
+    .chat-input button{
+        width:100%;
+        height:50px;
+    }
+    .chat-input input{
+        width:100%;
+    }
+}
+
+@media(max-width:600px){
+    .toast-message{
+        left:15px;
+        right:15px;
+        top:15px;
+        min-width:auto;
+    }
+}
+
+@media(max-width:576px){
+    section{
+        padding:50px 0;
+    }
+    .container{
+        width:95%;
+    }
+    .section-title h2{
+        font-size:28px;
+    }
+    .tenant-logo{
+        font-size:24px;
+    }
+    .profile-image img{
+        width:130px;
+        height:130px;
+    }
+    .message{
+        max-width:90%;
+    }
+    .card-buttons a,
+    .favorite-actions a,
+    .favorite-actions button,
+    .main-btn,
+    .details-btn,
+    .second-btn,
+    .remove-btn,
+    .favorite-btn {
+        flex: 1 1 100%;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media(max-width:480px){
+    .favorite-content{
+        padding:18px;
+    }
+    .favorite-actions{
+        flex-direction:column;
+    }
+}
+
+@media(max-width:320px){
+    body {
+        font-size: 14px;
+    }
+    .container {
+        width: 98%;
+        padding: 0 4px;
+    }
+    .section-title h2 {
+        font-size: 22px;
+    }
+}
+/* ================================
+   تصغير حجم الكارد (Compact Card Update)
+================================ */
+
+.property-card,
+.favorite-card {
+    border-radius: 18px;
+}
+
+.property-card img,
+.favorite-card img {
+    height: 180px; 
+    object-fit: cover;
+}
+
+.property-content,
+.favorite-content {
+    padding: 15px; 
+}
+
+.property-content h3,
+.favorite-content h3 {
+    font-size: 18px; 
+    margin-bottom: 8px;
+}
+
+.property-content p,
+.favorite-location {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.property-content h4,
+.favorite-price {
+    font-size: 20px; 
+    margin: 10px 0;
+}
+
+.card-buttons a,
+.card-buttons button,
+.favorite-actions a,
+.favorite-actions button {
+    padding: 9px 15px; 
+    font-size: 13px;     
+    border-radius: 20px;
+}
+/* ================================
+   BOOKING TABLE STYLING
+================================ */
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    margin-top: 20px;
+    text-align: left;
+}
+
+.booking-table th, 
+.booking-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.booking-table th {
+    background-color: var(--light);
+    color: var(--dark);
+    font-weight: 700;
+}
+
+.booking-table tr:last-child td {
+    border-bottom: none;
+}
+
+.booking-table tr:hover {
+    background-color: #fbf6f7;
+}
+
+.booking-table .status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.booking-table .status.pending {
+    background: #fff4d6;
+    color: #d48806;
+}
+
+.booking-table .status.approved {
+    background: #dff7e6;
+    color: #1e8e3e;
+}
+
+.booking-table .status.rejected {
+    background: #ffe4e8;
+    color: #d6336c;
+}
+
+/* تنسيق زر العرض (View) داخل الجدول */
+.booking-table .details-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+    border-radius: 20px;
+    background: var(--primary);
+    color: #fff;
+    display: inline-block;
+    transition: .3s;
+}
+
+.booking-table .details-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+/* ================================
+   RESPONSIVE BOOKING TABLE
+================================ */
+
+@media (max-width: 992px) {
+    .booking-table, 
+    .booking-table tbody, 
+    .booking-table tr, 
+    .booking-table td, 
+    .booking-table th {
+        display: block;
+        width: 100%;
+    }
+
+    .booking-table thead {
+        display: none; 
+    }
+
+    .booking-table tr {
+        background: #fff;
+        margin-bottom: 20px;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        padding: 15px;
+    }
+
+    .booking-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+        padding: 12px 10px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .booking-table td:last-child {
+        border-bottom: none;
+    }
+
+    .booking-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--dark);
+        margin-left: 10px;
+    }
+
+    .booking-table .details-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}

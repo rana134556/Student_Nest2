@@ -1,0 +1,46 @@
+<?php include_once __DIR__ . "/constants.php"; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/navbar.css"> -->
+</head>
+<body>
+    
+
+<nav class="nav_bar">
+  
+    <!-- <div class="nav_contant"> -->
+        <div>
+    <a href="home.php" class="tenant-logo">
+            <i class="fa-solid fa-house"></i>
+             <span class="logo-dark">Student</span>
+            <span class="logo-color">Nest</span>
+
+        </a>
+        
+</div>
+            <div>
+       <ul> 
+    <li><a href="<?=BASE_URL?>home.php">Home</a></li>
+    <li><a href="<?=BASE_URL?>gallery.php">Gallery</a></li>
+    <li><a href="<?=BASE_URL?>public/about.php">About Us</a></li>
+    <li><a href=" <?=BASE_URL?>contact_us.php">Contact Us</a></li>
+
+    <?php
+    if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['role']) && $_SESSION['role'] == 'tenant') {?>
+           <li><a href="<?=BASE_URL?>tenant/dashboard.php">Find Housing</a></li>
+       <?php } elseif (isset($_SESSION['role']) && $_SESSION['role'] == 'landlord') {?>
+           <li><a href="<?=BASE_URL?>dashboard_2/dashboard.php">My Properties</a></li>
+    <?php    }
+     
+   } ?>
+  </ul>
+</div>
+<!-- </div> -->
+</nav>
+</body>
+</html>
