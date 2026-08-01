@@ -30,6 +30,7 @@
             <p>Find and book your perfect accommodation easily and securely.</p>
             <button><a href="tenant_login.php">Continue as Tenant</a></button>
         </div>
+    </div>
 </section>
 </body>
 </html>
