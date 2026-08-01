@@ -74,9 +74,6 @@ section{
     color:var(--gray);
 }
 
-/* ================================
-   BUTTONS (تم تحديث زر الحجز Book Now ليكون أبيض)
-================================ */
 
 .main-btn,
 .details-btn,
@@ -98,7 +95,7 @@ section{
     white-space:nowrap;
 }
 
-/* زر الحجز الأساسي (Main Button) أصبح أبيض بإطار بلون الموقع */
+
 .main-btn{
     background:#fff;
     color:var(--primary);
@@ -318,7 +315,7 @@ section{
     transform: translateY(-3px);
 }
 
-/* زر المفضلة (Favorite) وباقي الأزرار الثانوية */
+
 .card-buttons .second-btn,
 .card-buttons .favorite-btn,
 .second-btn,
@@ -600,7 +597,7 @@ section{
     box-shadow:0 10px 30px rgba(0,0,0,.08);
     transition:.35s;
     max-width:350px;
-    /* width: 320px !important; */
+   
 }
 
 .favorite-card:hover{
@@ -764,10 +761,9 @@ section{
 .notification-card.unread{
     border-left:6px solid var(--primary);
 }
-
-/* ================================
-   TENANT NAVBAR
-================================ */
+/* ==============================
+   NAVBAR
+============================== */
 
 .tenant-navbar{
     position:sticky;
@@ -781,6 +777,7 @@ section{
     width:min(90%,1200px);
     margin:auto;
     height:80px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -793,6 +790,7 @@ section{
     font-size:30px;
     font-weight:800;
     color:var(--dark);
+    text-decoration:none;
 }
 
 .tenant-logo i{
@@ -806,11 +804,18 @@ section{
 .tenant-links{
     list-style:none;
     display:flex;
-    gap:30px;
     align-items:center;
+    gap:30px;
+    margin:0;
+    padding:0;
+}
+
+.tenant-links li{
+    margin:0;
 }
 
 .tenant-links a{
+    text-decoration:none;
     color:var(--dark);
     font-weight:600;
     position:relative;
@@ -841,6 +846,16 @@ section{
     width:100%;
 }
 
+/* زر الموبايل */
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:28px;
+    color:var(--primary);
+}
 /* ================================
    PROFILE
 ================================ */
@@ -1219,16 +1234,7 @@ section{
     .favorites-grid{
         grid-template-columns:repeat(2,1fr);
     }
-    .tenant-nav-container{
-        flex-direction:column;
-        height:auto;
-        padding:20px 0;
-        gap:20px;
-    }
-    .tenant-links{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
+
     .profile-card{
         flex-direction:column;
         text-align:center;
@@ -1359,7 +1365,6 @@ section{
     }
 }
 /* ================================
-   تصغير حجم الكارد (Compact Card Update)
 ================================ */
 
 .property-card,
@@ -1464,7 +1469,7 @@ section{
     color: #d6336c;
 }
 
-/* تنسيق زر العرض (View) داخل الجدول */
+
 .booking-table .details-btn {
     padding: 8px 18px;
     font-size: 13px;
@@ -1531,4 +1536,42 @@ section{
         text-align: center;
         margin-top: 10px;
     }
+}
+@media(max-width:768px){
+
+    .tenant-nav-container{
+        width:95%;
+        height:auto;
+        padding:15px 0;
+        flex-wrap:wrap;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .tenant-links{
+        display:none;
+        flex-direction:column;
+        width:100%;
+        margin-top:15px;
+        background:#fff;
+        gap:0;
+    }
+
+    .tenant-links.active{
+        display:flex;
+    }
+
+    .tenant-links li{
+        width:100%;
+        text-align:center;
+        border-top:1px solid #eee;
+    }
+
+    .tenant-links li a{
+        display:block;
+        padding:18px;
+    }
+
 }
