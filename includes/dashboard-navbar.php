@@ -1,16 +1,20 @@
 <nav class="tenant-navbar">
+
     <div class="tenant-nav-container">
 
-        <!-- الشعار يوجه للصفحة الرئيسية الأولى خالص -->
         <a href="../home.php" class="tenant-logo">
             <i class="fa-solid fa-house"></i>
-             <span class="logo-dark">Student</span>
+            <span class="logo-dark">Student</span>
             <span class="logo-color">Nest</span>
-           
         </a>
 
+        <!-- Hamburger -->
+        <button class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
         <ul class="tenant-links">
-            <!-- الهوم الأولاني خالص -->
+
             <li>
                 <a href="../home.php">
                     <i class="fa-solid fa-house"></i>
@@ -18,7 +22,6 @@
                 </a>
             </li>
 
-            <!-- لوحة التحكم (Dashboard) -->
             <li>
                 <a href="dashboard.php">
                     <i class="fa-solid fa-chart-line"></i>
@@ -49,7 +52,8 @@
 
             <li>
                 <a href="notifications.php">
-                    <i class="fa-solid fa-bell"></i> Notifications
+                    <i class="fa-solid fa-bell"></i>
+                    Notifications
                 </a>
             </li>
 
@@ -60,9 +64,8 @@
                 </a>
             </li>
 
-            <!-- زر تسجيل الخروج -->
             <li>
-                <a href="logout.php" class="logout-link" style="color: #d6336c;">
+                <a href="logout.php" class="logout-link">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     Logout
                 </a>
@@ -71,4 +74,18 @@
         </ul>
 
     </div>
+
 </nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const btn = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".tenant-links");
+
+    btn.addEventListener("click", function () {
+        menu.classList.toggle("active");
+    });
+
+});
+</script>
