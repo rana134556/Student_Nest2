@@ -3,81 +3,93 @@
 session_start();
 include("db.php");
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
-    if(isset($_POST['create'])){
-   $full_name=$_POST['full_name'];
-   $useremail_2 = $_POST["useremail_2"];
-   $userpassword_2= $_POST["userpassword_2"];
-   $phone_number=$_POST["phone_number"];
-   $confirmpassword=$_POST["confirmpassword"];
-    $errors=[];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // validations
-     if(empty($full_name)){
-        $errors[]="User name is required";
-    }
-    if(empty($useremail_2)){
-        $errors[]="Email is required";
-    }
-    if(!empty($useremail_2) && !filter_var($useremail_2,FILTER_VALIDATE_EMAIL)){
-        $errors[]="Invalid email";
-    }
-      if(empty($phone_number)){
-        $errors[]="Phone number is required";
-    }
-     if(empty($userpassword_2)){
-        $errors[]="Password is required";}
-    
-    if(empty($confirmpassword)){
-        $errors[]="Confirm Password is required";
-    }
-   if (!isset($_POST['agree'])) {
-    $errors[] = "You must agree to the Terms & Conditions and Privacy Policy.";
-}
-    
-    if(count($errors)>0){
-        $_SESSION['errors']=$errors;
-        header("Location:create_landlord.php");
-        exit;
-    }
-    else{
-      
-    // check if email already exists
-    $check_email = "SELECT * FROM users WHERE email='$useremail_2'";
-    $result = mysqli_query($connect, $check_email);}
+    if (isset($_POST['create'])) {
 
-    if(mysqli_num_rows($result) > 0){
+        $full_name = $_POST['full_name'];
+        $useremail_2 = $_POST["useremail_2"];
+        $userpassword_2 = $_POST["userpassword_2"];
+        $phone_number = $_POST["phone_number"];
+        $confirmpassword = $_POST["confirmpassword"];
 
-        $_SESSION['errors'] = ["Email already exists"];
-        header("Location:create_tenant.php");
-        exit;
-    }
-    }
-    else{
-        // Adding data to the database
-      
-         $query = "INSERT INTO users (name, email, phone, password, role)
-        VALUES ('$full_name', '$useremail_2', '$phone_number', '$userpassword_2', 'landlord')";
+        $errors = [];
 
+        // validations
+        if (empty($full_name)) {
+            $errors[] = "User name is required";
+        }
 
-        if(mysqli_query($connect, $query)){
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['role'] = $user['role'];
-            $_SESSION['useremail_2']=$useremail_2;
-            $_SESSION['full_name']=$full_name;
-            $_SESSION['phone_number']=$phone_number;
+        if (empty($useremail_2)) {
+            $errors[] = "Email is required";
+        }
+
+        if (!empty($useremail_2) && !filter_var($useremail_2, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = "Invalid email";
+        }
+
+        if (empty($phone_number)) {
+            $errors[] = "Phone number is required";
+        }
+
+        if (empty($userpassword_2)) {
+            $errors[] = "Password is required";
+        }
+
+        if (empty($confirmpassword)) {
+            $errors[] = "Confirm Password is required";
+        }
+
+        if ($userpassword_2 != $confirmpassword) {
+            $errors[] = "Passwords do not match";
+        }
+
+        if (!isset($_POST['agree'])) {
+            $errors[] = "You must agree to the Terms & Conditions and Privacy Policy.";
+        }
+
+        // لو فيه أخطاء
+        if (count($errors) > 0) {
+
+            $_SESSION['errors'] = $errors;
+            header("Location:create_landlord.php");
+            exit;
+        }
+
+        // Check Email
+        $check_email = "SELECT * FROM users WHERE email='$useremail_2'";
+        $result = mysqli_query($connect, $check_email);
+
+        if (mysqli_num_rows($result) > 0) {
+
+            $_SESSION['errors'] = ["Email already exists"];
+            header("Location:create_landlord.php");
+            exit;
+        }
+
+        // Insert User
+        $query = "INSERT INTO users (name, email, phone, password, role)
+                  VALUES ('$full_name', '$useremail_2', '$phone_number', '$userpassword_2', 'landlord')";
+
+        if (mysqli_query($connect, $query)) {
+
+            $_SESSION['user_id'] = mysqli_insert_id($connect);
+            $_SESSION['name'] = $full_name;
+            $_SESSION['role'] = "landlord";
+            $_SESSION['useremail_2'] = $useremail_2;
+            $_SESSION['full_name'] = $full_name;
+            $_SESSION['phone_number'] = $phone_number;
 
             header("Location:home.php");
             exit;
 
-        }else{
+        } else {
 
-            echo "Database Error: " . mysqli_error($connect);
+            die("Database Error: " . mysqli_error($connect));
 
         }
-      }
     }
-
+}
 
 ?>
 <!DOCTYPE html>
